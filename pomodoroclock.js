@@ -16,6 +16,8 @@ function resetTimers() {
   defaultSessionLength = 25;
   defaultTimeLeft = '25.00';
   switcher = 0;
+  document.getElementById('beep').pause();
+  document.getElementById('beep').currentTime = 0;
   document.getElementById("timer-label").innerHTML = "Session time";
   document.getElementById("break-length").innerHTML = defaultBreakLength;
   document.getElementById("session-length").innerHTML = defaultSessionLength;
@@ -90,6 +92,10 @@ function playAndStop() {
   }
 }
 
+function playAlarm() {
+
+}
+
 function defaultSessionTimer() {
   timeLeft = new Date();
   timeLeft.setMinutes(defaultSessionLength);
@@ -117,6 +123,7 @@ function defaultSessionTimer() {
     }
 
     if (minutes == 00 && seconds == 00) {
+      document.getElementById('beep').play();
       clearInterval(sessionInterval);
       sessionInterval = undefined;
       defaultBreakTimer();
@@ -154,6 +161,7 @@ function restartedSessionTimer() {
     }
 
     if (minutes == 00 && seconds == 00) {
+      document.getElementById('beep').play();
       clearInterval(sessionInterval);
       sessionInterval = undefined;
       defaultBreakTimer();
@@ -191,6 +199,7 @@ breakInterval = setInterval(function() {
   }
 
   if (minutes == 00 && seconds == 00) {
+    document.getElementById('beep').play();
     clearInterval(breakInterval);
     breakInterval = undefined;
     setTimeout(function() {defaultSessionTimer()}, 1000);
@@ -230,6 +239,7 @@ breakInterval = setInterval(function() {
   }
 
   if (minutes == 00 && seconds == 00) {
+    document.getElementById('beep').play();
     clearInterval(breakInterval);
     breakInterval = undefined;
     setTimeout(function() {defaultSessionTimer()}, 1000);
