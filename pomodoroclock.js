@@ -18,7 +18,7 @@ function resetTimers() {
   switcher = 0;
   document.getElementById('beep').pause();
   document.getElementById('beep').currentTime = 0;
-  document.getElementById("timer-label").innerHTML = "Session time";
+  document.getElementById("timer-label").innerHTML = "SESSION TIME:  ";
   document.getElementById("break-length").innerHTML = defaultBreakLength;
   document.getElementById("session-length").innerHTML = defaultSessionLength;
   document.getElementById("time-left").innerHTML = defaultTimeLeft;
@@ -71,7 +71,7 @@ function playAndStop() {
     if (switcher === 1) {
       console.log(switcher + " sessionInterval")
       switcher = 0;
-      document.getElementById('timer-label').innerHTML = 'session paused'
+      document.getElementById('timer-label').innerHTML = 'SESSION PAUSED: '
       clearInterval(sessionInterval);
     } else if (switcher === 0) {
       console.log(switcher + " restarting")
@@ -82,7 +82,7 @@ function playAndStop() {
     if (switcher === 1) {
       console.log(switcher + " breakInterval")
       switcher = 0;
-      document.getElementById('timer-label').innerHTML = 'break paused'
+      document.getElementById('timer-label').innerHTML = 'BREAK PAUSED: '
       clearInterval(breakInterval);
     } else if (switcher === 0) {
       console.log(switcher + " restarting")
@@ -107,7 +107,7 @@ function defaultSessionTimer() {
     minutes = "0" + minutes;
   }
 
-  document.getElementById('time-left').innerHTML = minutes + ":0" + seconds; console.log("default session " + document.getElementById('time-left').innerHTML);  document.getElementById('timer-label').innerHTML = 'default session running'
+  document.getElementById('time-left').innerHTML = minutes + ":0" + seconds; console.log("default session " + document.getElementById('time-left').innerHTML);  document.getElementById('timer-label').innerHTML = 'SESSION TIME LEFT: '
 
   sessionInterval = setInterval(function() {
     timeLeft.setSeconds(timeLeft.getSeconds() -1);
@@ -145,7 +145,7 @@ function restartedSessionTimer() {
     minutes = "0" + minutes;
   }
 
-  document.getElementById('time-left').innerHTML = minutes + ":" + seconds; console.log("default session " + document.getElementById('time-left').innerHTML);  document.getElementById('timer-label').innerHTML = 'restarted session running'
+  document.getElementById('time-left').innerHTML = minutes + ":" + seconds; console.log("default session " + document.getElementById('time-left').innerHTML);  document.getElementById('timer-label').innerHTML = 'SESSION TIME LEFT: '
 
   sessionInterval = setInterval(function() {
     timeLeft.setSeconds(timeLeft.getSeconds() -1);
@@ -183,7 +183,8 @@ function defaultBreakTimer() {
   }
 
 setTimeout(function(){
-  document.getElementById('time-left').innerHTML = minutes + ":0" + seconds;  console.log("default break " + document.getElementById('time-left').innerHTML);      document.getElementById('timer-label').innerHTML = 'default break running';
+  document.getElementById('time-left').innerHTML = minutes + ":0" + seconds;  console.log("default break " + document.getElementById('time-left').innerHTML);
+  document.getElementById('timer-label').innerHTML = 'BREAK TIME LEFT: ';
 
 breakInterval = setInterval(function() {
   timeLeft.setSeconds(timeLeft.getSeconds() -1);

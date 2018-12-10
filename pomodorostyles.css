@@ -1,51 +1,186 @@
 body {
   display: flex;
   justify-content: center;
+  background-image: url("https://res.cloudinary.com/dny80spwx/image/upload/v1544200784/BG.jpg");
+  font-family: roboto;
 }
 
 #clock {
   display: grid;
-  grid-template-columns: 250px 250px
+  margin-top: 20vh;
+  width: 90%;
+  max-width: 500px;
+  min-width: 390px;
+  background-image: linear-gradient(#222222 8%, #111111 60%);
+  border: 5px solid silver;
+  border-radius: 20px;
+  padding: 15px;
+  grid-template-columns: 50%;
+  grid-template-areas: 
+    "session break"
+    "display display"
+    "displaycontrols displaycontrols"
+    "displaycontrols displaycontrols";
+  color: white;
 }
 
-#reset {
-  width: 50px;
-  height: 50px;
-  background-color: blue;
-  color: white
+#session {
+  grid-area: session;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+#session-display,
+#break-display {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 18px;
+  margin-bottom: 10px;
+  width: 90%;
+}
+
+#session-length,
+#break-length {
+  display: flex;
+  background-image: linear-gradient(#333333 8%, black 60%);
+  border: 1px solid black;
+  width: 22%;
+  height: 30px;
+  border-radius: 3px;
+  margin-right: 4px;
+  justify-content: center;
+  align-items: center;
+  font-family: roboto;
+  font-weight: 200;
+  font-size: 23px;
+  text-shadow: 1px 1px 1px gold, 0 0 0.5em gold, 0 0 0.1em gold;
+}
+
+#session-controls,
+#break-controls {
+  display: flex;
+  flex-direction: row;
+  background-color: black;
+  width: 90%;
+  height: 52px;
+  justify-content: space-around;
+  border-radius: 5px;
+}
+
+#break {
+  grid-area: break;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#session-increment,
+#session-decrement,
+#break-increment,
 #break-decrement {
-  width: 200px;
-  height: 30px;
-  background-color: red;
-  color: white
+  display: flex;
+  width: 48%;
+  height: 92%;
+  margin-top: 2px;
+  background-image: linear-gradient(#333333 8%, #111111 60%);
+  box-shadow: inset 4px 3px 1px #333333, inset -1px -1px 1px black;
+  color: gold;
+  border-radius: 2px;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
 }
 
-#break-increment {
-  width: 200px;
-  height: 30px;
-  background-color: green;
-  color: white
+#session-increment:hover,
+#session-decrement:hover,
+#break-increment:hover,
+#break-decrement:hover,
+#start_stop:hover,
+#reset:hover {
+  background-image: linear-gradient(#333333 8%, #222222 60%);
 }
 
-#session-decrement {
-  width: 200px;
-  height: 30px;
-  background-color: blue;
-  color: white
+#session-increment:active,
+#session-decrement:active,
+#break-increment:active,
+#break-decrement:active,
+#start_stop:active,
+#reset:active {
+  background-image: linear-gradient(#333333 8%, #333333 60%);
 }
 
-#session-increment {
-  width: 200px;
-  height: 30px;
-  background-color: orange;
-  color: white
+
+#display_controls {
+  grid-area: displaycontrols;
+  width: 93%;
+  border-radius: 2px;
+  margin: auto;
+  padding: 2px 2px 0 2px;
+  background-color: black;
+  display: grid;
+  grid-template-areas: 
+    "display display display display startstop"
+    "display display display display reset";
+  grid-column-gap: 8px;
+  grid-row-gap: 2px;
+  margin-top: 30px;
+  text-align: center;
+}
+
+#display {
+  grid-area: display;
+  display: flex;
+  box-sizing: border-box;
+  height: 80px;
+  width: 100%;
+  background-color: black;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  font-weight: 100;
+  box-shadow: inset 7px 7px #111111, inset -7px -7px #333333;
 }
 
 #start_stop {
-    width: 100px;
-    height: 80px;
-    background-color: grey;
-    color: white
+  display: flex;
+  grid-area: startstop;
+  width: 100%;
+  height: 100%;
+  border-radius: 2px;
+  background-image: linear-gradient(#333333 8%, #111111 60%);
+  color: white;
+  justify-content: center;
+  align-items: center;
+}
+
+#reset {
+  display: flex;
+  grid-area: reset;
+  width: 100%;
+  height: 100%;
+  border-radius: 2px;
+  background-image: linear-gradient(#333333 8%, #111111 60%);
+  color: orange;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 522px) {
+  #clock {
+    background-color: green;
+  }
+
+  #session-display,
+  #break-display {
+    padding-right: 10px; 
+    padding-left: 10px;
+  }
+
+  #session-length,
+  #break-length {
+    width: 32%;
+  }
 }

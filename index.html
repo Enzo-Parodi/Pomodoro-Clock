@@ -4,29 +4,49 @@
 <head>
   <title>Pomodoro Clock</title>
   <link rel="stylesheet" href="pomodorostyles.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+
 </head>
 <body onload="resetTimers()">
 
   <audio id="beep" src="https://res.cloudinary.com/dny80spwx/video/upload/v1538930580/Analog-watch-alarm-sound.mp3"></audio>
 
   <div id="clock">
+    <div id="session">
+      <div id="session-display">
+        <div id="session-label">SESSION LENGTH: </div>
+        <div id="session-length"></div>
+      </div>
+      <div id="session-controls">
+        <div id="session-decrement">-</div>
+        <div id="session-increment">+</div>
+      </div>
+    </div>
 
-    <div id="break-label">Break Length:</div>
-    <div id="session-label">Session Length</div>
-    <div id="break-decrement">break decrement</div>
-    <div id="session-decrement">session decrement</div>
-    <div id="break-increment">break increment</div>
-    <div id="session-increment">session increment</div>
-    <div id="break-length"></div>
-    <div id="session-length"></div>
-    <div id="timer-label">Session</div>
-    <div id="time-left"></div>
-    <div id="start_stop">START/STOP</div>
-    <div id="reset">reset</div>
+    <div id="break">
+      <div id="break-display">
+        <div id="break-label">BREAK LENGTH: </div>
+        <div id="break-length"></div>        
+      </div>
+      <div id="break-controls">
+        <div id="break-decrement">-</div>
+        <div id="break-increment">+</div>
+      </div>
+    </div>
+
+    <div id="display_controls">
+      <div id="display">
+        <div id="timer-label">Session</div>
+        <div id="time-left"></div>
+      </div>
+
+      <div id="start_stop"><i class="fas fa-play"></i><i class="fas fa-pause"></i></div>
+      <div id="reset"><i class="fas fa-redo-alt"></i></div>
+    <div>
 
   </div>
 
-  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
   <script src="pomodoroclock.js"></script>
 
 </body>
